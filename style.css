@@ -38,12 +38,16 @@ h1 {
     flex: 1;
     height: 40px;
     cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .color.active {
     border: 5px solid #FFF;
 }
 
-.clear {
+.clear, .dimension {
     border: 1px solid #000;
     background-color: rgba(0, 0, 0, 0.2);
     color: #FFF;

@@ -3,6 +3,7 @@ let currentColor = 'black';
 let canDraw = false;
 let mouseX = 0;
 let mouseY = 0;
+let size = 1;
 
 let screen = document.querySelector('#tela');
 let ctx = screen.getContext('2d');
@@ -25,6 +26,8 @@ screen.addEventListener('mousemove', mouseMoveEvent);
 screen.addEventListener('mouseup', mouseUpEvent);
 
 document.querySelector('.clear').addEventListener('click', clearScreen);
+document.querySelector('.dimension').addEventListener('click', dimension);
+
 
 // Functions
 function colorClickEvent(e) {
@@ -57,7 +60,7 @@ function draw(x, y) {
 
     // desenhar
     ctx.beginPath();
-    ctx.lineWidth = 5;
+    ctx.lineWidth = size;
     ctx.lineJoin = "round";
     ctx.moveTo(mouseX, mouseY);
     ctx.lineTo(pointX, pointY);
@@ -72,4 +75,13 @@ function draw(x, y) {
 function clearScreen() {
     ctx.setTransform(1,0,0,1,0,0);
     ctx.clearRect(0,0,ctx.canvas.width, ctx.canvas.height);
+}
+
+function dimension() {
+   let select = document.querySelector("#dm");
+   var value = select.options[select.selectedIndex].text;
+   size = value; 
+   console.log(value);
+   return size;
+
 }
